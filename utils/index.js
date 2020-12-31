@@ -52,16 +52,16 @@ inquirer
             name: 'email',
         },
 
-    ]);
+    ]).then((response) => {
+        const { title, description, instructions } = response;
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
 
-// function to initialize program
-function init() {
+        const readMeTemplate = `# ${title}
+    ### ${description}
+    ### ${instructions}
+    `;
 
-}
-
-// function call to initialize program
-init();
+        fs.writeFile('README.md', readMeTemplate, err =>
+            err ? console.error(err) : console.log('Success!')
+        )
+    });
