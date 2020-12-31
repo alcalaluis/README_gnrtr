@@ -53,13 +53,43 @@ inquirer
         },
 
     ]).then((response) => {
-        const { title, description, instructions } = response;
+        const { title, description, instructions, usage, contribution, test, licensing, github, email } = response;
 
 
-        const readMeTemplate = `# ${title}
-    ### ${description}
-    ### ${instructions}
-    `;
+        const readMeTemplate = `# **${title}**
+        ### ${licensing}
+
+        # Table of Contents
+        -[Description] (#description)
+        -[Installation] (#instructions)
+        -[Usage] (#usage)
+        -[Contribution Guidelines] (#contribution-guidlines)
+        -[Test] (#test)
+        -[Licensing] (#licensing)
+        -[Questions] (#questions)
+
+        ## Description
+        ### ${description}
+
+        ## Installation 
+        ### ${instructions}
+
+        ## Usage 
+        ### ${usage}
+
+        ## Contribution Guidelines
+        ### ${contribution}
+
+        ## Test 
+        ### ${test}
+
+        ## Licensing
+        ### ${licensing}
+
+        ## Questions
+        ### For any lingering questions contact me through GitHub or email:
+        ### github.com/${github}
+        ### ${email}`;
 
         fs.writeFile('README.md', readMeTemplate, err =>
             err ? console.error(err) : console.log('Success!')
