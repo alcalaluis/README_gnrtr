@@ -53,43 +53,10 @@ inquirer
         },
 
     ]).then((response) => {
-        const { title, description, instructions, usage, contribution, test, licensing, github, email } = response;
+        const { title, licensing, description, instructions, usage, contribution, test, github, email } = response;
 
 
-        const readMeTemplate = `# **${title}**
-        ### ${licensing}
-
-        # Table of Contents
-        -[Description] (#description)
-        -[Installation] (#instructions)
-        -[Usage] (#usage)
-        -[Contribution Guidelines] (#contribution-guidlines)
-        -[Test] (#test)
-        -[Licensing] (#licensing)
-        -[Questions] (#questions)
-
-        ## Description
-        ### ${description}
-
-        ## Installation 
-        ### ${instructions}
-
-        ## Usage 
-        ### ${usage}
-
-        ## Contribution Guidelines
-        ### ${contribution}
-
-        ## Test 
-        ### ${test}
-
-        ## Licensing
-        ### ${licensing}
-
-        ## Questions
-        ### For any lingering questions contact me through GitHub or email:
-        ### github.com/${github}
-        ### ${email}`;
+        const readMeTemplate = `# **${title}**\n ## ${licensing} \n\n # **Table of Contents** \n - [Description](#description) \n - [Installation](#installation) \n - [Usage](#usage) \n - [Contribution Guidelines](#contribution-guidelines) \n - [Test](#test) \n - [Licensing](#licensing) \n - [Questions](#questions) \n ## **Description:** \n #### ${description} \n\n ## **Installation:** \n ### ${instructions} \n\n ## **Usage:** \n ${usage} \n\n ## **Contribution Guidelines:** \n ${contribution} \n\n ## **Test:** \n ### ${test} \n\n ## **Licensing:** \n ### ${licensing} \n ## **Questions:** \n ### For any lingering questions contact me through GitHub or email: \n github.com/${github} \n ### ${email}`
 
         fs.writeFile('README.md', readMeTemplate, err =>
             err ? console.error(err) : console.log('Success!')
