@@ -1,8 +1,9 @@
 const fs = require('fs');
+// calling inquirer from package.json file 
 const inquirer = require('inquirer');
 
 
-
+// using inquirer template for prompt questions user will answer in terminal
 inquirer
     .prompt([
         {
@@ -56,8 +57,9 @@ inquirer
         const { title, licensing, description, instructions, usage, contribution, test, github, email } = response;
 
 
+       // Template literal containing user input
         const readMeTemplate = `# **${title}**\n ## ${licensing} \n\n # **Table of Contents** \n - [Description](#description) \n - [Installation](#installation) \n - [Usage](#usage) \n - [Contribution Guidelines](#contribution-guidelines) \n - [Test](#test) \n - [Licensing](#licensing) \n - [Questions](#questions) \n ## **Description:** \n #### ${description} \n\n ## **Installation:** \n ### ${instructions} \n\n ## **Usage:** \n ${usage} \n\n ## **Contribution Guidelines:** \n ${contribution} \n\n ## **Test:** \n ### ${test} \n\n ## **Licensing:** \n ### ${licensing} \n ## **Questions:** \n ### For any lingering questions contact me through GitHub or email: \n github.com/${github} \n ### ${email}`
-
+       // Generating README.md file
         fs.writeFile('README.md', readMeTemplate, err =>
             err ? console.error(err) : console.log('Success!')
         )
