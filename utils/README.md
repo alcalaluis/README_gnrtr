@@ -30,3 +30,6 @@
  ### For any lingering questions contact me through GitHub or email: 
  github.com/alcalaluis 
  ### alcalaluis@rocketmail.com
+ 
+ ## Link to Video: 
+ https://youtu.be/oW4Gzu-eXkc
